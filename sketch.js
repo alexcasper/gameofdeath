@@ -9,23 +9,20 @@ function draw() {
 
 
 
-function fieldInit(fieldSize) {
-    var initSize = fieldSize;
-    while (!fieldSize%4==0) { fieldSize--; }
-    console.log(`reducing to grid of ${fieldsize} cells from ${initsize} cells, axes of ${fieldSize/4}`)
-    return ([fieldSize/4, fieldSize4/4, fieldSize])
-}
 
-function fieldInit(x,y) {
+function fieldInit(xy) {
+    var [x,y] = xy
+
     var cells = x*y;
     console.log(`generating grid ${x} by ${y}`)
-    return ([x, y, cells])
+    return fieldPop([x, y, cells])
 }
 
 function fieldPop (init)
 { var field = []; 
-    for (var i=0;i<init[2].length;i++)
-{arr.push(0)}
+    for (var i=0;i<init[2];i++)
+{(Math.random())>0.83 ? field.push(0) : field.push(1) }
+
 return [init, field]
 }
 
@@ -106,4 +103,5 @@ return visArray.join("")
 }
 
 
-fieldUpdate([[5,5,25,0],[0,0,1,1,0,1,0,1,1,1,1,1,0,0,1,1,0,1,1,0,1,0,0,1,0]])
+//fieldUpdate([[5,5,25,0],[0,0,1,1,0,1,0,1,1,1,1,1,0,0,1,1,0,1,1,0,1,0,0,1,0]])
+fieldUpdate(fieldInit([66,22]))
